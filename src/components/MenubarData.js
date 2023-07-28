@@ -11,26 +11,26 @@ export const MenubarData = [
     {
 
         title: "Search",
-        icon: <SearchIcon/>
+        icon: <SearchIcon style={{ fontSize: '1.9rem' }}/>
         
     },
 
     {
         title: "Home",
-        icon: <HomeIcon/>,
+        icon: <HomeIcon style={{ fontSize: '1.9rem',color:"white" }}/>,
         link:"Home"
     },
 
     
     {
         title:"Notification",
-        icon:<NotificationsIcon/>,
+        icon:<NotificationsIcon style={{ fontSize: '1.9rem' }}/>,
         link:"/Notification"
     },
 
     {
         title: "Favorites",
-        icon: <StarBorderIcon/>,
+        icon: <StarBorderIcon style={{ fontSize: '1.9rem' }}/>,
         link:"/Favorites"
     },
 ]
