@@ -1,50 +1,67 @@
 import React, { useState } from 'react'
 import { MenubarData } from './MenubarData'
+import { colors } from '@mui/material';
 const Menubar = () => {
-    const [bgColor, setbgColor] = useState()
 
-
-    function handleClick() {
-        var menuTitleDiv = document.querySelector('.MenubarTitle');
-        menuTitleDiv.style.backgroundColor = 'red';
-      }
-      
+    const [activeTabs, setActiveTabs] = useState([]);
 
     return <div className='Menubar'>
-        <button style={{ float: "right", backgroundImage: "none" }} type="button" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+        <button
+            style={{
+
+                background: "none",
+                border: "none",
+                boxShadow: "none",
+                fontSize: "26px",
+                marginLeft: "180px",
+                color: 'white',
+                position: "absolute",
+            }}
+            type="button"
+            aria-label="Close"
+        >
+            <span aria-hidden="true" style={{ width: "14", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", }}>
+                &times;
+            </span>
         </button>
+
 
         <ul className='m-0 p-0'>
             {MenubarData.map((val, key) => {
                 return (
                     <>
-                        <li style={{ listStyleType: "none" }} key={key}
+                        <li className={ activeTabs.some((el) => el === val.title) && 'active'} style={{ listStyleType: "none" }} key={key}
                             onClick={() => {
-                                window.location.pathname = val.link
+                                // window.location.pathname = val.link
+                                if (activeTabs.some((el) => el === val.title)) {
+                                    let activeTab = [...activeTabs];
+                                    let index = activeTab.findIndex((el) => el === val.title);
+                                    activeTab.splice(index, 1);
+                                    setActiveTabs(activeTab);
+                                } else {
+                                    setActiveTabs([...activeTabs, val.title])
+                                }
                             }}
-                            className='p-1'
-                        >
+            >
                             <div style={{}} className='p-0'>
-                                <ul className='p-1 m-0'>
+                                <ul className='p-1 m-0 ulist'>
                                     <li
                                         className='d-flex abc p-0 hoverEffectClass'
                                         style={{ padding: "5px" }}
-                     
                                     >
                                         <div className='Icon' style={{}}>
                                             {val.icon}
                                         </div>
-                                        <div className='ps-4 MenubarTitle'  onClick={handleClick}>
+                                        <div style={{color:"white"}}>
                                             {val.Headers}
+                                            </div>
+                                        <div className='ps-4 MenubarTitle'>
                                             {val.title}
                                         </div>
+                                      
                                     </li>
                                 </ul>
                             </div>
-
-
-
                         </li>
                     </>
                 )
