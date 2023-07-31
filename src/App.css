@@ -6,7 +6,8 @@
   background-size: cover;
   background-color: black;
   display: flex;
-
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
@@ -21,18 +22,15 @@ align-items: flex-start;
 gap: 4px;
 flex-shrink: 0;
 border-radius: 24px;
-
 background: linear-gradient(135deg, rgba(79, 79, 79, 0.10) 0%, rgba(79, 79, 79, 0.10) 0.01%, rgba(255, 255, 255, 0.10) 32.81%, rgba(79, 79, 79, 0.10) 100%);
 backdrop-filter: blur(40px);
-border: 0.1px solid white;
+border: 0.01px solid snow;
 position: absolute;
-top: 70%;
-left: 50%;
-transform: translate(-50%, -50%);
+top: 50%;
+left: 45%;
 padding: 10px;
 
 }
-
 /* //title */
 .MenubarTitle {
 margin-top: 5px;
@@ -47,8 +45,9 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
 padding-left: 2rem!important;
-
+font-family: revert;
 }
+
 
 .hoverEffectClass .MenubarTitle:hover {
   position: relative; 
@@ -56,6 +55,7 @@ padding-left: 2rem!important;
   transform: scaleY(1.2);
   opacity: 0.8; 
 }
+
 
 .hoverEffectClass .Icon:hover {
   position: relative; 
@@ -68,51 +68,21 @@ padding-left: 2rem!important;
   color: #f0f0f0;
 }
 
-
-
 .ulist .Icon .MenubarTitle:hover{
   /* font-size: 13px; */
   cursor: pointer;
-
-
- 
 }
 
 /* //icon */
 .Icon {
   color: white;
   border-radius: 50%;
-  left:50%;
+  /* left:50%; */
   background: linear-gradient(135deg, rgba(240, 236, 236, 0.1) 0%, rgba(247, 241, 241, 0.1) 0.01%, rgba(233, 230, 230, 0.1) 32.81%, rgba(226, 221, 221, 0.1) 100%);
   border-radius: 50px; 
   border-width: 400%;
 }
 
-.hoverEffectClass:hover .Icon .MenubarTitle {
-  background: 'none';
-  /* border: 1px solid  rgb(139, 135, 135);  */
-  border-radius: 'none'; 
-  color: white;
-  cursor: pointer;
-
-  margin-bottom: 5px;
-}
-
-.Main-container {
-  color: white;
-  border-radius: 50%;
-  /* transition: background-color 0.3s ease; */
-  left:50%;
- 
-  
-}
-
-.onSelectHover.hoverEffectClass:hover {
-  background-color: #f0f0f0;
-  cursor: pointer;
-  color: #f0f0f0;
-  height: 31px;
-}
 
 
 .active {
@@ -124,13 +94,30 @@ padding-left: 2rem!important;
   border: #f0f0f0;
   margin-bottom: 5px;
 
+}
+  
 
+/* Define the animation keyframes */
+@keyframes moveFromTopAnimation {
+  0% {
+      transform: translateY(-100%); /* Start position above the container */
+  }
+  100% {
+      transform: translateY(0); /* End position at the container's top */
+  }
 }
 
-.button-fade-out {
-  animation: myfirst 5s 2;
-  animation-direction: alternate;
 
- 
-  transition: opacity 0.5s ease;
+@keyframes moveFromBottomAnimation {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+.moveFromBottom  {
+
+  animation: moveFromBottomAnimation 1s ease-in-out;
+  transform: translateY(-500%);
+  transform: translateY(0);
+   animation-duration: 0.3s;
 }

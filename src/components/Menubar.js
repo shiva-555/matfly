@@ -3,15 +3,22 @@ import { MenubarData } from './MenubarData'
 import { colors } from '@mui/material';
 const Menubar = () => {
 
-    const [activeTabs, setActiveTabs] = useState([]);
-    const [isClosing, setIsClosing] = useState(false);
 
-    const handleAnimation =()=>{
-        setIsClosing(true);
+
+    const [activeTabs, setActiveTabs] = useState([]);
+    const [isAnimated, setIsAnimated] = useState(false);
+
+
+
+    const handleClick =()=>{
+        setIsAnimated(!isAnimated);
     }
-    return <div className='Menubar'>
-        <button
-           className={isClosing ? 'button-fade-out' : ''}
+ 
+    
+
+    return <div className={`Menubar ${isAnimated ? 'moveFromBottom' : ""}`}>
+
+        <button     
             style={{
 
                 background: "none",
@@ -24,8 +31,8 @@ const Menubar = () => {
                 bottom:190
             }}
             type="button"
-            aria-label="Close"
-            onClick={handleAnimation}
+            aria-label="Close" 
+            onClick={handleClick}
         >
             <span aria-hidden="true" style={{ width: "14", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", }}>
                 &times;
@@ -53,11 +60,14 @@ const Menubar = () => {
                                         <div style={{ color: "white", marginLeft:"15px",bottom:20}}>
                                             {val.Headers}
                                         </div>
-                                 <div style={{}} className='p-0'>
+
+                                 <div className='p-0'>
+                              
                                 <ul className='p-1 m-0 ulist'>
                                     <li
                                         className='d-flex abc p-0 hoverEffectClass'
                                         style={{ padding: "10px" }}
+                                        
                                     >
                                         <div className='Icon' style={{}}>
                                             {val.icon}
@@ -75,6 +85,7 @@ const Menubar = () => {
 
             })}
         </ul>
+     
     </div>
 
 }
