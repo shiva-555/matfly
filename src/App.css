@@ -29,7 +29,6 @@ position: absolute;
 top: 50%;
 left: 45%;
 padding: 10px;
-
 }
 /* //title */
 .MenubarTitle {
@@ -98,15 +97,6 @@ font-family: revert;
   
 
 /* Define the animation keyframes */
-@keyframes moveFromTopAnimation {
-  0% {
-      transform: translateY(-100%); /* Start position above the container */
-  }
-  100% {
-      transform: translateY(0); /* End position at the container's top */
-  }
-}
-
 
 @keyframes moveFromBottomAnimation {
   from {

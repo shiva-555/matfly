@@ -60,14 +60,10 @@ const Menubar = () => {
                                         <div style={{ color: "white", marginLeft:"15px",bottom:20}}>
                                             {val.Headers}
                                         </div>
-
-                                 <div className='p-0'>
-                              
                                 <ul className='p-1 m-0 ulist'>
                                     <li
                                         className='d-flex abc p-0 hoverEffectClass'
-                                        style={{ padding: "10px" }}
-                                        
+                                        style={{ padding: "10px" }} 
                                     >
                                         <div className='Icon' style={{}}>
                                             {val.icon}
@@ -78,7 +74,7 @@ const Menubar = () => {
 
                                     </li>
                                 </ul>
-                            </div>
+                        
                         </li>
                     </>
                 )
